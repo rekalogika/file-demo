@@ -16,6 +16,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Rekalogika\Contracts\File\FileInterface;
+use Rekalogika\File\Association\Attribute\AsFileAssociation;
+use Rekalogika\File\Association\Attribute\WithFileAssociation;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -34,6 +37,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\Table(name: 'symfony_demo_post')]
 #[UniqueEntity(fields: ['slug'], errorPath: 'title', message: 'post.slug_unique')]
+#[WithFileAssociation]
 class Post
 {
     #[ORM\Id]
@@ -80,6 +84,9 @@ class Post
     #[ORM\OrderBy(['name' => 'ASC'])]
     #[Assert\Count(max: 4, maxMessage: 'post.too_many_tags')]
     private Collection $tags;
+
+    #[AsFileAssociation()]
+    private ?FileInterface $image = null;
 
     public function __construct()
     {
@@ -195,5 +202,15 @@ class Post
     public function getTags(): Collection
     {
         return $this->tags;
+    }
+
+    public function getImage(): ?FileInterface
+    {
+        return $this->image;
+    }
+
+    public function setImage(?FileInterface $image): void
+    {
+        $this->image = $image;
     }
 }
