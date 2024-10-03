@@ -21,6 +21,10 @@
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.0",
         "league/commonmark": "^2.1",
+        "nyholm/psr7": "^1.8",
+        "rekalogika/file-association": "^1.11",
+        "rekalogika/file-bundle": "^1.11",
+        "rekalogika/file-filepond": "^1.11",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "^7",
         "symfony/asset-mapper": "^7",
@@ -71,7 +75,8 @@
         "allow-plugins": {
             "symfony/flex": true,
             "symfony/runtime": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true
         },
         "platform": {
             "php": "8.2.0"

@@ -18,4 +18,10 @@ return [
     Symfony\UX\StimulusBundle\StimulusBundle::class => ['all' => true],
     Symfonycasts\SassBundle\SymfonycastsSassBundle::class => ['all' => true],
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
+    Rekalogika\Psr16SimpleCacheBundle\RekalogikaPsr16SimpleCacheBundle::class => ['all' => true],
+    Rekalogika\TemporaryUrl\RekalogikaTemporaryUrlBundle::class => ['all' => true],
+    Rekalogika\File\Bundle\RekalogikaFileBundle::class => ['all' => true],
+    Rekalogika\File\Bridge\FilePond\RekalogikaFileFilePondBundle::class => ['all' => true],
+    Rekalogika\DirectPropertyAccess\RekalogikaDirectPropertyAccessBundle::class => ['all' => true],
+    Rekalogika\Reconstitutor\RekalogikaReconstitutorBundle::class => ['all' => true],
 ];
