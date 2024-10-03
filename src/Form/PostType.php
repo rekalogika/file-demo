@@ -14,6 +14,7 @@ namespace App\Form;
 use App\Entity\Post;
 use App\Form\Type\DateTimePickerType;
 use App\Form\Type\TagsInputType;
+use Rekalogika\File\Bridge\FilePond\FilePondType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -65,6 +66,12 @@ final class PostType extends AbstractType
             ->add('publishedAt', DateTimePickerType::class, [
                 'label' => 'label.published_at',
                 'help' => 'help.post_publication',
+            ])
+            ->add('image', FilePondType::class, [
+                'label' => 'label.image',
+                'help' => 'help.image',
+                'required' => false,
+                'allow_delete' => true, 
             ])
             ->add('tags', TagsInputType::class, [
                 'label' => 'label.tags',
