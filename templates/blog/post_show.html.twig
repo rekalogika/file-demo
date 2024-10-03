@@ -10,6 +10,10 @@
         <span class="metadata"><twig:ux:icon name="tabler:user"/> {{ post.author.fullName }}</span>
     </p>
 
+    {% if post.image %}
+        <img src="{{ post.image|temporary_url }}" class="img-fluid">
+    {% endif %}
+
     {{ post.content|markdown_to_html|sanitize_html }}
 
     {{ include('blog/_post_tags.html.twig') }}

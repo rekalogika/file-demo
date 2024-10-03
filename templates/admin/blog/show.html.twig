@@ -14,7 +14,11 @@
         <p class="mb-0"><strong>{{ 'label.summary'|trans }}</strong>: {{ post.summary }}</p>
     </div>
 
-    {{ post.content|markdown_to_html|sanitize_html }}
+    {% if post.image %}
+        <img src="{{ post.image|temporary_url }}" class="img-fluid">
+    {% endif %}
+
+    {{ post.content|markdown_to_html|sanitize_html }}   
 
     {{ include('blog/_post_tags.html.twig') }}
 {% endblock %}
